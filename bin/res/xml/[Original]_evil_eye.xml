@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "../bulletml.dtd">
+
+<bulletml type="vertical"
+          xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+<action label="top">
+  <repeat><times>5 + 10</times><action>
+    <actionRef label="5way">
+      <param>30</param>
+    </actionRef>
+    <wait>27</wait>
+    <actionRef label="5way">
+      <param>20</param>
+    </actionRef>
+    <wait>27</wait>
+  </action></repeat>
+
+  <wait>60</wait>
+
+</action>
+
+<action label="5way">
+
+  <fire>
+    <direction type="aim">$1 * (-2)</direction>
+    <speed>1.3</speed>
+    <bulletRef label="bit">
+      <param>$1 * 2</param>
+    </bulletRef>
+  </fire>
+  <fire>
+    <direction type="aim">$1 * (-1)</direction>
+    <speed>1.3</speed>
+    <bulletRef label="bit">
+      <param>$1 * 1</param>
+    </bulletRef>
+  </fire>
+  <fire>
+    <direction type="aim">0</direction>
+    <speed>1.3</speed>
+    <bulletRef label="bit">
+      <param>0</param>
+    </bulletRef>
+  </fire>
+  <fire>
+    <direction type="aim">$1 * 1</direction>
+    <speed>1.3</speed>
+    <bulletRef label="bit">
+      <param>$1 * (-1)</param>
+    </bulletRef>
+  </fire>
+  <fire>
+    <direction type="aim">$1 * 2</direction>
+    <speed>1.3</speed>
+    <bulletRef label="bit">
+      <param>$1 * (-2)</param>
+    </bulletRef>
+  </fire>
+
+</action>
+
+<bullet label="bit">
+<action>
+
+  <wait>30</wait>
+
+  <fire>
+    <direction type="relative">$1 - 15 + 30 * $rand</direction>
+    <speed>1.3 + 1.0</speed>
+    <bullet/>
+  </fire>
+  <repeat><times>2 + 3</times><action>
+    <fire>
+      <direction type="sequence">0</direction>
+      <speed type="sequence">0.1</speed>
+      <bullet/>
+    </fire>
+  </action></repeat>
+
+  <vanish/>
+
+</action>
+</bullet>
+
+</bulletml>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+<!-- 3-way with curving left and right -->
+<bulletml xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+	<action label="top">
+		<fire>
+			<direction type="absolute">90</direction>
+			<bulletRef label="curveLeft" />
+		</fire>
+
+		<fire>
+			<direction type="absolute">-90</direction>
+			<bulletRef label="curveRight" />
+		</fire>
+		<fire>
+			<direction type="absolute">180</direction>
+			<bullet />
+		</fire>
+	</action>
+
+	<bullet label="curveLeft">
+		<action>
+			<changeDirection>
+				<direction type="absolute">170</direction>
+				<term>5</term>
+			</changeDirection>
+		</action>
+	</bullet>
+
+	<bullet label="curveRight">
+		<action>
+			<changeDirection>
+				<direction type="absolute">190</direction>
+				<term>5</term>
+			</changeDirection>
+		</action>
+	</bullet>
+</bulletml>

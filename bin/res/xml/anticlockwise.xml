@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml>
+	<action label="spiral">
+		<fire>
+			<direction type="sequence">360/$1+$2</direction>
+			<bullet/>
+		</fire>
+		<repeat>
+			<times>1</times>
+			<action>
+				<fire>
+					<direction type="sequence">360/$1</direction>
+					<bullet/>
+				</fire>
+			</action>
+		</repeat>
+	</action>
+
+
+	<action label="top">
+		<repeat>
+			<times>20</times>
+			<action>
+				<actionRef label="spiral">
+					<param>1</param>
+					<param>20</param>
+				</actionRef>
+				<wait>5</wait>
+			</action>
+		</repeat>
+	</action>
+
+
+</bulletml>

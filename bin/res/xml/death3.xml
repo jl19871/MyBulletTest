@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml>
+	<action label="spiral">
+
+		<fire>
+			<direction type="sequence">360/$1 - $2</direction>
+			<speed>1.5</speed>
+			<bullet/>
+		</fire>
+
+		<repeat>
+			<times>$1-1</times>
+			<action>
+				<fire>
+					<direction type="sequence">360/$1</direction>
+					<speed>1.5</speed>
+					<bullet/>
+				</fire>
+			</action>
+		</repeat>
+
+
+	</action>
+
+
+	<action label="top">
+		<repeat>
+			<times>50 + $rank * 10</times>
+			<action>
+				<actionRef label="spiral">
+					<param>4 + $rank * 2</param>
+					<param>20</param>
+				</actionRef>
+				<wait>5</wait>
+			</action>
+		</repeat>
+	</action>
+
+
+</bulletml>

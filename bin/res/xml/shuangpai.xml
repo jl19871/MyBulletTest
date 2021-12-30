@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+<!-- 3-way with curving left and right -->
+<bulletml 
+          xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+	<action label="top">
+		<repeat><times>1 + $rank * 2</times>
+			<action>
+				<fire>
+					<direction type="relative">90</direction>
+					<speed>1 + $rank</speed>
+					<bulletRef label="curveLeft" />
+				</fire>
+				<fire>
+					<direction type="relative">-90</direction>
+					<speed>1 + $rank</speed>
+					<bulletRef label="curveRight" />
+				</fire>
+				<wait>5</wait>
+			</action>
+		</repeat>
+	</action>
+	
+
+	<bullet label="curveLeft">
+		<action>
+			<changeDirection>
+				<direction type="relative">-90</direction>
+				<term>4</term>
+			</changeDirection>
+		</action>
+	</bullet>
+
+	<bullet label="curveRight">
+		<action>
+			<changeDirection>
+				<direction type="relative">90</direction>
+				<term>4</term>
+			</changeDirection>
+		</action>
+	</bullet>
+</bulletml>

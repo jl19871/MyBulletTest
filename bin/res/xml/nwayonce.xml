@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml type="vertical" 
+  xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="topshot">
+    <repeat>
+      <times>1</times>
+      <action>
+        <fire>
+          <bullet>
+            <speed>0</speed>
+            <action>
+              <actionRef label="seed"/>
+            </action>
+          </bullet>
+        </fire>
+        <wait>70-$rank*12</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="seed">
+
+    <actionRef label="way">
+      <param>5</param>
+    </actionRef>
+    <wait>10 - $rank</wait>
+    <actionRef label="way">
+      <param>4</param>
+    </actionRef>
+    <wait>10 - $rank</wait>
+    <actionRef label="way">
+      <param>7</param>
+    </actionRef>
+    <wait>10 - $rank</wait>
+    <actionRef label="way">
+      <param>6</param>
+    </actionRef>
+    <vanish/>
+  </action>
+  <action label="way">
+    <fire>
+      <direction type="absolute">($1-1)*20/2 + 180</direction>
+      <bullet label="nrm"/>
+    </fire>
+    <repeat>
+      <times>$1-1</times>
+      <action>
+        <fire>
+          <direction type="sequence">-20</direction>
+          <bullet label="nrm"/>
+        </fire>
+      </action>
+    </repeat>
+  </action>
+  <bullet label="nrm">
+    <speed>3</speed>
+  </bullet>
+
+</bulletml>

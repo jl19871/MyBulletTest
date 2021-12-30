@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<bulletml>
+	<action label="top">
+		<fire>
+			<direction type="absolute">90</direction>
+			<bulletRef label="curveLeft" />
+		</fire>
+		<fire>
+			<direction type="absolute">-90</direction>
+			<bulletRef label="curveLeft" />
+		</fire>
+	</action>
+
+	<bullet label="curveLeft">
+		<action>
+			<changeDirection>
+				<direction type="absolute">180</direction>
+				<term>2</term>
+			</changeDirection>
+		</action>
+	</bullet>
+</bulletml>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<bulletml type="vertical">
+	<action label="top">
+		<fire>
+			<direction type="absolute"> 180 + 10</direction>
+			<bullet />
+		</fire>
+		<fire>
+			<direction type="absolute"> 180-10</direction>
+			<bullet />
+		</fire>
+	</action>
+</bulletml>
